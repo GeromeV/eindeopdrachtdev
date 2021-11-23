@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="eindeopdracht_dev.MainPage">
+
+
+    <StackLayout x:Name="pagina" Margin="16,8">
+
+        <Label x:Name="lblnaam" Text="Parking Gent" FontSize="Large" FontAttributes="Bold" HorizontalTextAlignment="Center" />
+
+        <ListView x:Name="lvwProductions" RowHeight="200" IsPullToRefreshEnabled="False" ItemSelected="lvwProductions_ItemSelected">
+            <!--Please uncomment the itemtemplate below AFTER you tested the itemssource as text-->
+            <ListView.ItemTemplate >
+                <DataTemplate >
+                    <ViewCell>
+                        <Grid>
+                            <Frame BackgroundColor="White" Margin="12" Padding="0">
+                                <Grid RowSpacing="0">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="0" />
+                                        <RowDefinition Height=".20*" />
+                                        <RowDefinition Height=".75*" />
+                                    </Grid.RowDefinitions>
+                                    <!--<Image Source="{Binding }" Grid.RowSpan="3" Aspect="AspectFill" />-->
+                                    <Label  x:Name="lblnaam" Text="{Binding fields.name}" Grid.Row="1" FontSize="Medium" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" BackgroundColor="#BB000000" TextColor="White" />
+                                </Grid>
+                            </Frame>
+                            <Frame BackgroundColor="{Binding fields.kleur}" Padding="4" Margin="4,24" VerticalOptions="End" HorizontalOptions="End" >
+                                <Label  TextColor="White">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="{Binding fields.availablecapacity}" />
+                                            <Span Text=" / " />
+                                            <Span Text="{Binding fields.totalcapacity}" />
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                            </Frame>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+
+</ContentPage>
