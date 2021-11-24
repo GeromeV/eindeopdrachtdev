@@ -4,6 +4,12 @@
              x:Class="eindeopdracht_dev.views.parkingdetails">
     <ContentPage.Content>
         <StackLayout>
+            <ListView>
+                <ListView.ItemTemplate>
+                    
+                    <!--<Label Text="{Binding fields.name}" Grid.Row="1" FontSize="Medium" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" BackgroundColor="#BB000000" TextColor="White" />-->
+                </ListView.ItemTemplate>
+            </ListView>
             <Label Text="Welcome to Xamarin.Forms!"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />

@@ -32,12 +32,20 @@ namespace eindeopdracht_dev.views
 
         }
 
-        private async void lvwProductions_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        private void lvwProductions_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            //edit
-            var parking = (ParkingGent.Rootobject)sender;
-            await Navigation.PushAsync(new parkingdetails());
+            ParkingGent.Rootobject selected = lvwProductions.SelectedItem as ParkingGent.Rootobject;
+            //var park = (ParkingGent.Rootobject)sender;
+            Navigation.PushAsync(new parkingdetails(selected));
+           
         }
+
+        //private async void lvwProductions_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        //{
+        //    //edit
+        //    //var parking = ParkingGent.Rootobject;
+        //    //await Navigation.PushAsync(new parkingdetails(parking));
+        //}
 
     }
 }

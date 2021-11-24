@@ -14,7 +14,7 @@ namespace eindeopdracht_dev.views
     public partial class parkingdetails : ContentPage
     {
         ParkingGent park;
-        public parkingdetails()
+        public parkingdetails(ParkingGent.Rootobject park)
         {
             InitializeComponent();
             
