@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
+
 namespace eindopdracht.Models
 {
     public class ParkingGent
@@ -45,7 +46,7 @@ namespace eindopdracht.Models
 
                     double procent;
                     procent = availablecapacity / totalcapacity * 100;
-                    if (procent > 50)
+                    if (procent > 60)
                     {
                         return "green";
                     }
@@ -58,6 +59,15 @@ namespace eindopdracht.Models
                         return "red";
                     }
                     return "blue";
+                }
+            }
+
+            public string foto
+            {
+                get
+                {
+                    
+                    return $"/eindeopdracht_dev/eindeopdracht_dev/eindeopdracht_dev/img/{name}.jpg";
                 }
             }
         }

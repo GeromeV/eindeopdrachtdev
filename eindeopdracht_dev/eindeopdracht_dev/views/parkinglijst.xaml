@@ -22,6 +22,8 @@
                                         </Grid.RowDefinitions>
                                         <!--<Image Source="{Binding }" Grid.RowSpan="3" Aspect="AspectFill" />-->
                                         <Label  x:Name="lblnaam" Text="{Binding fields.name}" Grid.Row="1" FontSize="Medium" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" BackgroundColor="#BB000000" TextColor="White" />
+                                        <Image Source="{Binding fields.foto}"> </Image>
+                                        <Image Source="assets/Reep.jpg"></Image>
                                     </Grid>
                                 </Frame>
                                 <Frame BackgroundColor="{Binding fields.kleur}" Padding="4" Margin="4,24" VerticalOptions="End" HorizontalOptions="End" >

@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -11,12 +11,58 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
-    <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
+    <None Remove="assets\B-Park Dampoort.jpg" />
+    <None Remove="assets\B-Park Gent Sint-Pieters.jpg" />
+    <None Remove="assets\Dok noord.jpg" />
+    <None Remove="assets\Reep.jpg" />
+    <None Remove="assets\Savaanstraat.jpg" />
+    <None Remove="assets\Sint-Michiels.jpg" />
+    <None Remove="assets\Sint-Pietersplein.jpg" />
+    <None Remove="assets\Tolhuis.jpg" />
+    <None Remove="img\B-Park Dampoort.jpg" />
+    <None Remove="img\B-Park Gent Sint-Pieters.jpg" />
+    <None Remove="img\Dok noord.jpg" />
+    <None Remove="img\Ramen.jpg" />
+    <None Remove="img\Reep.jpg" />
+    <None Remove="img\Savaanstraat.jpg" />
+    <None Remove="img\Sint-Michiels.jpg" />
+    <None Remove="img\Sint-Pietersplein.jpg" />
+    <None Remove="img\Tolhuis.jpg" />
+    <None Remove="img\Vrijdagmarkt.jpg" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="assets\B-Park Dampoort.jpg" />
+    <EmbeddedResource Include="assets\B-Park Gent Sint-Pieters.jpg" />
+    <EmbeddedResource Include="assets\Dok noord.jpg" />
+    <EmbeddedResource Include="assets\Reep.jpg" />
+    <EmbeddedResource Include="assets\Savaanstraat.jpg" />
+    <EmbeddedResource Include="assets\Sint-Michiels.jpg" />
+    <EmbeddedResource Include="assets\Sint-Pietersplein.jpg" />
+    <EmbeddedResource Include="assets\Tolhuis.jpg" />
+    <EmbeddedResource Include="img\B-Park Dampoort.jpg" />
+    <EmbeddedResource Include="img\B-Park Gent Sint-Pieters.jpg" />
+    <EmbeddedResource Include="img\Dok noord.jpg" />
+    <EmbeddedResource Include="img\Ramen.jpg" />
+    <EmbeddedResource Include="img\Reep.jpg" />
+    <EmbeddedResource Include="img\Savaanstraat.jpg" />
+    <EmbeddedResource Include="img\Sint-Michiels.jpg" />
+    <EmbeddedResource Include="img\Sint-Pietersplein.jpg" />
+    <EmbeddedResource Include="img\Tolhuis.jpg" />
+    <EmbeddedResource Include="img\Vrijdagmarkt.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2244" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
+    <PackageReference Include="Xamarin.Forms.Maps" Version="5.0.0.2244" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="views\map.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="views\parkingdetails.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

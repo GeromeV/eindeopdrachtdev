@@ -10,7 +10,7 @@ namespace eindeopdracht_dev
         public App()
         {
             InitializeComponent();
-
+            //MainPage = new NavigationPage(new map());
             MainPage = new NavigationPage(new parkinglijst());
         }
 
