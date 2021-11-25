@@ -1,4 +1,5 @@
-﻿using eindopdracht.Models;
+﻿using eindeopdracht_dev.views;
+using eindopdracht.Models;
 using eindopdracht.REpo;
 using System;
 using System.Collections.Generic;
@@ -15,21 +16,11 @@ namespace eindeopdracht_dev
     {
         public MainPage()
         {
-            InitializeComponent();
-        }
-        private async void opvullen()
-        {
-            Debug.WriteLine("debug parking");
-            ParkingGent.Rootobject x = await ParkingRepo.GetRecords();
-            lvwProductions.ItemsSource = x.records;
+            //InitializeComponent();
             
-
+        
 
         }
-
-        private void lvwProductions_ItemSelected(object sender, SelectedItemChangedEventArgs e)
-        {
-            
-        }
+     
     }
 }

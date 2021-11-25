@@ -28,7 +28,7 @@ namespace eindeopdracht_dev.views
         {
             Debug.WriteLine("debug parking");
             ParkingGent.Rootobject x = await ParkingRepo.GetRecords();
-            lvwProductions.ItemsSource = x.records;
+            lvwParking.ItemsSource = x.records;
             
             imgpark.Source = ImageSource.FromResource("eindeopdracht_dev/Assets/reep.jpg");
             
@@ -41,7 +41,7 @@ namespace eindeopdracht_dev.views
         {
             
             
-            ParkingGent.Record sele = lvwProductions.SelectedItem as ParkingGent.Record;
+            ParkingGent.Record sele = lvwParking.SelectedItem as ParkingGent.Record;
             Navigation.PushAsync(new parkingdetails(sele));
 
             
@@ -49,6 +49,7 @@ namespace eindeopdracht_dev.views
         }
 
         
+
 
     }
 }

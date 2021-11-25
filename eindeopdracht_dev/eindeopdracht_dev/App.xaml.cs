@@ -11,7 +11,7 @@ namespace eindeopdracht_dev
         {
             InitializeComponent();
             //MainPage = new NavigationPage(new map());
-            MainPage = new NavigationPage(new parkinglijst());
+             MainPage = new NavigationPage(new parkinglijst());
         }
 
         protected override void OnStart()
