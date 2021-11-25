@@ -3,11 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="eindeopdracht_dev.views.parkinglijst">
     <ContentPage.Content>
-        <StackLayout x:Name="pagina" Margin="16,8">
+        <StackLayout x:Name="pagina" Margin="16">
 
             <Label x:Name="lblnaam" Text="Parking Gent" FontSize="Large" FontAttributes="Bold" HorizontalTextAlignment="Center" />
-
+            <Image x:Name="imgpark" Aspect="AspectFill" HorizontalOptions="Fill"></Image>
             <ListView x:Name="lvwProductions" RowHeight="200" IsPullToRefreshEnabled="False" ItemSelected="lvwProductions_ItemSelected">
+                
                 <!--Please uncomment the itemtemplate below AFTER you tested the itemssource as text-->
                 <ListView.ItemTemplate >
                     <DataTemplate >
@@ -22,8 +23,8 @@
                                         </Grid.RowDefinitions>
                                         <!--<Image Source="{Binding }" Grid.RowSpan="3" Aspect="AspectFill" />-->
                                         <Label  x:Name="lblnaam" Text="{Binding fields.name}" Grid.Row="1" FontSize="Medium" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" BackgroundColor="#BB000000" TextColor="White" />
-                                        <Image Source="{Binding fields.foto}"> </Image>
-                                        <Image Source="assets/Reep.jpg"></Image>
+                                        <Image Source="eindeopdracht_dev/Assets/Reep.jpg" Grid.Row="2" Aspect="AspectFill" HorizontalOptions="Fill"> </Image>
+                                        <!--<Image x:Name="imgparking" Aspect="AspectFill"></Image>-->
                                     </Grid>
                                 </Frame>
                                 <Frame BackgroundColor="{Binding fields.kleur}" Padding="4" Margin="4,24" VerticalOptions="End" HorizontalOptions="End" >

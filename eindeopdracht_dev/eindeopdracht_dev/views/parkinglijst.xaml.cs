@@ -16,10 +16,12 @@ namespace eindeopdracht_dev.views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class parkinglijst : ContentPage
     {
+        
         public parkinglijst()
         {
             InitializeComponent();
             opvullen();
+
         }
 
         private async void opvullen()
@@ -27,16 +29,22 @@ namespace eindeopdracht_dev.views
             Debug.WriteLine("debug parking");
             ParkingGent.Rootobject x = await ParkingRepo.GetRecords();
             lvwProductions.ItemsSource = x.records;
-
+            
+            imgpark.Source = ImageSource.FromResource("eindeopdracht_dev/Assets/reep.jpg");
+            
+            
 
 
         }
 
-        private void lvwProductions_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        private async void lvwProductions_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            ParkingGent.Rootobject selected = lvwProductions.SelectedItem as ParkingGent.Rootobject;
+            
+           
+            ParkingGent.Record sele = lvwProductions.SelectedItem as ParkingGent.Record;
+            //sele.records = (ParkingGent.Record[])lvwProductions.SelectedItem;
             //var park = (ParkingGent.Rootobject)sender;
-            Navigation.PushAsync(new parkingdetails(selected));
+            Navigation.PushAsync(new parkingdetails(sele));
            
         }
 

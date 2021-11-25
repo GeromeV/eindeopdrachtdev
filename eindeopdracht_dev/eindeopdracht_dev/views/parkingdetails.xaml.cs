@@ -15,10 +15,17 @@ namespace eindeopdracht_dev.views
     public partial class parkingdetails : ContentPage
     {
         
-        public parkingdetails(ParkingGent.Rootobject park)
+        public parkingdetails(ParkingGent.Record park)
         {
             InitializeComponent();
-            Debug.WriteLine(park);
+            BindingContext = park;
+            
+
+        }
+
+        private async void Button_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new map());
         }
     }
 }

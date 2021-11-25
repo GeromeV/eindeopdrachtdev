@@ -11,45 +11,35 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="assets\B-Park Dampoort.jpg" />
-    <None Remove="assets\B-Park Gent Sint-Pieters.jpg" />
-    <None Remove="assets\Dok noord.jpg" />
-    <None Remove="assets\Reep.jpg" />
-    <None Remove="assets\Savaanstraat.jpg" />
-    <None Remove="assets\Sint-Michiels.jpg" />
-    <None Remove="assets\Sint-Pietersplein.jpg" />
-    <None Remove="assets\Tolhuis.jpg" />
-    <None Remove="img\B-Park Dampoort.jpg" />
-    <None Remove="img\B-Park Gent Sint-Pieters.jpg" />
-    <None Remove="img\Dok noord.jpg" />
-    <None Remove="img\Ramen.jpg" />
-    <None Remove="img\Reep.jpg" />
-    <None Remove="img\Savaanstraat.jpg" />
-    <None Remove="img\Sint-Michiels.jpg" />
-    <None Remove="img\Sint-Pietersplein.jpg" />
-    <None Remove="img\Tolhuis.jpg" />
-    <None Remove="img\Vrijdagmarkt.jpg" />
+    <Compile Remove="img\**" />
+    <EmbeddedResource Remove="img\**" />
+    <None Remove="img\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="assets\B-Park Dampoort.jpg" />
-    <EmbeddedResource Include="assets\B-Park Gent Sint-Pieters.jpg" />
-    <EmbeddedResource Include="assets\Dok noord.jpg" />
-    <EmbeddedResource Include="assets\Reep.jpg" />
-    <EmbeddedResource Include="assets\Savaanstraat.jpg" />
-    <EmbeddedResource Include="assets\Sint-Michiels.jpg" />
-    <EmbeddedResource Include="assets\Sint-Pietersplein.jpg" />
-    <EmbeddedResource Include="assets\Tolhuis.jpg" />
-    <EmbeddedResource Include="img\B-Park Dampoort.jpg" />
-    <EmbeddedResource Include="img\B-Park Gent Sint-Pieters.jpg" />
-    <EmbeddedResource Include="img\Dok noord.jpg" />
-    <EmbeddedResource Include="img\Ramen.jpg" />
-    <EmbeddedResource Include="img\Reep.jpg" />
-    <EmbeddedResource Include="img\Savaanstraat.jpg" />
-    <EmbeddedResource Include="img\Sint-Michiels.jpg" />
-    <EmbeddedResource Include="img\Sint-Pietersplein.jpg" />
-    <EmbeddedResource Include="img\Tolhuis.jpg" />
-    <EmbeddedResource Include="img\Vrijdagmarkt.jpg" />
+    <None Remove="Assets\B-Park Dampoort.jpg" />
+    <None Remove="Assets\B-Park Gent Sint-Pieters.jpg" />
+    <None Remove="Assets\Dok noord.jpg" />
+    <None Remove="Assets\Ramen.jpg" />
+    <None Remove="Assets\Reep.jpg" />
+    <None Remove="Assets\Savaanstraat.jpg" />
+    <None Remove="Assets\Sint-Michiels.jpg" />
+    <None Remove="Assets\Sint-Pietersplein.jpg" />
+    <None Remove="Assets\Tolhuis.jpg" />
+    <None Remove="Assets\Vrijdagmarkt.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\B-Park Dampoort.jpg" />
+    <EmbeddedResource Include="Assets\B-Park Gent Sint-Pieters.jpg" />
+    <EmbeddedResource Include="Assets\Dok noord.jpg" />
+    <EmbeddedResource Include="Assets\Ramen.jpg" />
+    <EmbeddedResource Include="Assets\reep.jpg" />
+    <EmbeddedResource Include="Assets\Savaanstraat.jpg" />
+    <EmbeddedResource Include="Assets\Sint-Michiels.jpg" />
+    <EmbeddedResource Include="Assets\Sint-Pietersplein.jpg" />
+    <EmbeddedResource Include="Assets\Tolhuis.jpg" />
+    <EmbeddedResource Include="Assets\Vrijdagmarkt.jpg" />
   </ItemGroup>
 
   <ItemGroup>

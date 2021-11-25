@@ -3,13 +3,35 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="eindeopdracht_dev.views.parkingdetails">
     <ContentPage.Content>
-        <StackLayout>
-            <Image Source=".../assets/Reep.jpg"></Image>
-            <Label Text="naam"></Label>
-            <Label Text="locatie"></Label>
-            <Label Text="plaatsenvrij"></Label>
-            <Label Text="bezet"></Label>
-            <Label Text="open"></Label>
+        <StackLayout Margin="28" Spacing="10" >
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="120"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Image Source="eindeopdracht_dev/Assets/Reep.jpg"  Grid.Row="1"></Image>
+                <Label FontSize="18" FontFamily="Sans Serif" Text="{Binding fields.name}"  Grid.Row="2"></Label>
+                <Label Text="{Binding fields.description}"  Grid.Row="3"></Label>
+                
+                <Label VerticalOptions="Center" Grid.Row="4">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Vrij plekken: " />
+                            <Span Text="{Binding fields.availablecapacity}" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label Text="{Binding fields.totalcapacity}"  Grid.Row="5"></Label>
+                <Label Text="{Binding fields.open}" Grid.Row="6"></Label>
+                <Label Text="{Binding fields.openingtimesdescription}"  Grid.Row="7"></Label>
+                <Button Text="Maps" Clicked="Button_Clicked" Grid.Row="8"></Button>
+            </Grid>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

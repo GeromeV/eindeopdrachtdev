@@ -66,8 +66,19 @@ namespace eindopdracht.Models
             {
                 get
                 {
-                    
-                    return $"/eindeopdracht_dev/eindeopdracht_dev/eindeopdracht_dev/img/{name}.jpg";
+                    return $"eindopdracht_dev/Assets/{name}.jpg";
+                }
+            }
+
+            public string open
+            {
+                get
+                {
+                    if(isopennow == 1)
+                    {
+                        return "De parking is geopend";
+                    }
+                    return "De garage is gesloten";
                 }
             }
         }
