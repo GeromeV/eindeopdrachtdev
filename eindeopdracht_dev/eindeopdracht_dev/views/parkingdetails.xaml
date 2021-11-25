@@ -15,10 +15,10 @@
                     <RowDefinition Height="auto"></RowDefinition>
                 </Grid.RowDefinitions>
                 <Image Source="eindeopdracht_dev/Assets/Reep.jpg"  Grid.Row="1"></Image>
-                <Label FontSize="18" FontFamily="Sans Serif" Text="{Binding fields.name}"  Grid.Row="2"></Label>
-                <Label Text="{Binding fields.description}"  Grid.Row="3"></Label>
-                
-                <Label VerticalOptions="Center" Grid.Row="4">
+                <Label TextColor="Black" FontSize="24" FontAttributes="Bold" FontFamily="Mijnfont" Text="{Binding fields.name}"  Grid.Row="2"></Label>
+                <Label TextColor="Black" Text="{Binding fields.description}" FontSize="14" FontFamily="Mijnfont"  Grid.Row="3"></Label>
+
+                <Label TextColor="Black" VerticalOptions="Center" FontSize="14" Grid.Row="4" FontFamily="Mijnfont">
                     <Label.FormattedText>
                         <FormattedString>
                             <Span Text="Vrij plekken: " />
@@ -26,10 +26,18 @@
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>
-                <Label Text="{Binding fields.totalcapacity}"  Grid.Row="5"></Label>
-                <Label Text="{Binding fields.open}" Grid.Row="6"></Label>
-                <Label Text="{Binding fields.openingtimesdescription}"  Grid.Row="7"></Label>
-                <Button Text="Maps" Clicked="Button_Clicked" Grid.Row="8"></Button>
+                <Label TextColor="Black" Text="{Binding fields.totalcapacity}" FontSize="14" FontFamily="Mijnfont" Grid.Row="5">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Aantal plaatsen: " />
+                            <Span Text="{Binding fields.totalcapacity}" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label TextColor="Black"  Text="{Binding fields.open}" Grid.Row="6"  FontSize="14" FontFamily="Mijnfont"></Label>
+                <Label  TextColor="Black" Text="{Binding fields.openingtimesdescription}" FontSize="14" FontFamily="Mijnfont" Grid.Row="7"></Label>
+                <Label  TextColor="Black" x:Name="lblcordinaten" Text="{Binding fields.openingtimesdescription}" FontSize="14" FontFamily="Mijnfont" Grid.Row="7"></Label>
+                <Button FontSize="18" FontAttributes="Bold" FontFamily="Mijnfont" Text="Maps" Clicked="Button_Clicked" Grid.Row="8" ></Button>
             </Grid>
 
         </StackLayout>

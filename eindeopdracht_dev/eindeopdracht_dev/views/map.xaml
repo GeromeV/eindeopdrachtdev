@@ -4,22 +4,7 @@
              x:Class="eindeopdracht_dev.views.map">
     <ContentPage.Content>
         <StackLayout>
-            <maps:Map IsShowingUser="True" MapType="Satellite" >
-                <!--<x:Arguments>
-                    <maps:MapSpan>
-                        --><!--<x:Arguments>
-                            <maps:Position {binding }>
-                                <x:Arguments>
-                                    <x:Double></x:Double>
-                                    <x:Double>-122.0194722</x:Double>
-                                </x:Arguments>
-                            </maps:Position>
-                            <x:Double>0.01</x:Double>
-                            <x:Double>0.01</x:Double>
-                        </x:Arguments>--><!--
-                    </maps:MapSpan>
-                </x:Arguments>-->
-            </maps:Map>
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

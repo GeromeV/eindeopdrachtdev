@@ -20,6 +20,8 @@
     <None Remove="Assets\B-Park Dampoort.jpg" />
     <None Remove="Assets\B-Park Gent Sint-Pieters.jpg" />
     <None Remove="Assets\Dok noord.jpg" />
+    <None Remove="Assets\Fonts\verdana-bold.ttf" />
+    <None Remove="Assets\Fonts\verdana.ttf" />
     <None Remove="Assets\Ramen.jpg" />
     <None Remove="Assets\Reep.jpg" />
     <None Remove="Assets\Savaanstraat.jpg" />
@@ -33,6 +35,8 @@
     <EmbeddedResource Include="Assets\B-Park Dampoort.jpg" />
     <EmbeddedResource Include="Assets\B-Park Gent Sint-Pieters.jpg" />
     <EmbeddedResource Include="Assets\Dok noord.jpg" />
+    <EmbeddedResource Include="Assets\Fonts\verdana-bold.ttf" />
+    <EmbeddedResource Include="Assets\Fonts\verdana.ttf" />
     <EmbeddedResource Include="Assets\Ramen.jpg" />
     <EmbeddedResource Include="Assets\reep.jpg" />
     <EmbeddedResource Include="Assets\Savaanstraat.jpg" />

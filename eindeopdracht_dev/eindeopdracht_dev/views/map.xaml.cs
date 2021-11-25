@@ -7,26 +7,37 @@ using System.Threading.Tasks;
 using Xamarin.Forms.Maps;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using eindopdracht.Models;
 
 namespace eindeopdracht_dev.views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class map : ContentPage
     {
-        public map()
+       private readonly Geocoder geocoder = new Geocoder();
+        public map(ParkingGent.Record record)
         {
-            Map map = new Map();
+            maps(record);
 
-            Position position = new Position(50.980669154585755, 3.5286615162748496);
+        }
+
+        public async void maps(ParkingGent.Record record)
+        {
+
+            Map kaart = new Map();
+            kaart.MapType = MapType.Satellite;
+            Position position = new Position(record.geometry.coordinates[1], record.geometry.coordinates[0]);
+            var addresses = await geocoder.GetAddressesForPositionAsync(position);
+
             Pin pin = new Pin
             {
-                Label = "Thuis",
-                Address = "Louis Dhontstraat",
+                Label = record.fields.name,
+                Address = addresses.FirstOrDefault()?.ToString(),
                 Type = PinType.Place,
                 Position = position
             };
-            map.Pins.Add(pin);
-            map.IsShowingUser = true;
+            kaart.Pins.Add(pin);
+            kaart.IsShowingUser = true;
             //Circle circle = new Circle
             //{
             //    Center = position,
@@ -38,11 +49,11 @@ namespace eindeopdracht_dev.views
             //map.MapElements.Add(circle);
 
             //Title = "Circle demo";
-            Content = map;
+            Content = kaart;
 
-            map.MoveToRegion(new MapSpan(position, 0.01, 0.01));
-
+            kaart.MoveToRegion(new MapSpan(position, 0.01, 0.01));
         }
-         
+
+        
     }
 }

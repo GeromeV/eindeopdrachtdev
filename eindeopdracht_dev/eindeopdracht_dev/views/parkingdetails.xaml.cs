@@ -14,18 +14,23 @@ namespace eindeopdracht_dev.views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class parkingdetails : ContentPage
     {
-        
-        public parkingdetails(ParkingGent.Record park)
+
+       
+        public ParkingGent.Record records = new ParkingGent.Record();
+        public parkingdetails(ParkingGent.Record record)
         {
             InitializeComponent();
-            BindingContext = park;
+            BindingContext = record;
+            records = record;
             
 
         }
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new map());
+            //ParkingGent.Record sele = lblcordinaten as ParkingGent.Geometry;
+            
+            await Navigation.PushAsync(new map(records));
         }
     }
 }

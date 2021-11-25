@@ -40,20 +40,15 @@ namespace eindeopdracht_dev.views
         private async void lvwProductions_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             
-           
+            
             ParkingGent.Record sele = lvwProductions.SelectedItem as ParkingGent.Record;
-            //sele.records = (ParkingGent.Record[])lvwProductions.SelectedItem;
-            //var park = (ParkingGent.Rootobject)sender;
             Navigation.PushAsync(new parkingdetails(sele));
+
+            
            
         }
 
-        //private async void lvwProductions_ItemSelected(object sender, SelectedItemChangedEventArgs e)
-        //{
-        //    //edit
-        //    //var parking = ParkingGent.Rootobject;
-        //    //await Navigation.PushAsync(new parkingdetails(parking));
-        //}
+        
 
     }
 }
