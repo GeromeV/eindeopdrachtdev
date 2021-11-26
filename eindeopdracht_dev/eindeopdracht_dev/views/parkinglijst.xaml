@@ -2,10 +2,27 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="eindeopdracht_dev.views.parkinglijst">
-    <ContentPage.Content>
-        <StackLayout x:Name="pagina" Margin="16">
 
-            <Label x:Name="lblnaam" Text="Parking Gent" FontSize="Large" FontAttributes="Bold" HorizontalTextAlignment="Center" />
+    <NavigationPage.TitleView>
+        <StackLayout>
+            <Grid RowSpacing="0" Padding="0" BackgroundColor="Transparent">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="25" />
+                    <ColumnDefinition Width="*" />
+                    
+                </Grid.ColumnDefinitions>
+                <ImageButton x:Name="imgMapnav" Source="eindeopdracht_dev.Assets.map.png" Aspect="AspectFit" VerticalOptions="Start" Grid.Column="0" Clicked="imgMapnav_Clicked" BackgroundColor="Transparent"/>
+                <Label Text="Parking Gent" TextColor="White" VerticalOptions="Center" HorizontalOptions="Center" FontSize="20"  FontAttributes="Bold" Grid.Column="1" />
+                
+            </Grid>
+            
+        </StackLayout>
+    </NavigationPage.TitleView>
+            
+    <ContentPage.Content>
+        <StackLayout x:Name="pagina" Margin="16" BackgroundColor="White">
+
+          
             <Image x:Name="imgpark" Aspect="AspectFill" HorizontalOptions="Fill"></Image>
             <ListView x:Name="lvwParking" RowHeight="200" IsPullToRefreshEnabled="False" ItemSelected="lvwProductions_ItemSelected">
                 <ListView.ItemTemplate >

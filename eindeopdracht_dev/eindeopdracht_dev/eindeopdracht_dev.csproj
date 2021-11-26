@@ -25,6 +25,7 @@
     <None Remove="Assets\dok noord.png" />
     <None Remove="Assets\Fonts\verdana-bold.ttf" />
     <None Remove="Assets\Fonts\verdana.ttf" />
+    <None Remove="Assets\map.png" />
     <None Remove="Assets\Ramen.jpg" />
     <None Remove="Assets\ramen.png" />
     <None Remove="Assets\Reep.jpg" />
@@ -47,6 +48,7 @@
     <EmbeddedResource Include="Assets\dok noord.png" />
     <EmbeddedResource Include="Assets\Fonts\verdana-bold.ttf" />
     <EmbeddedResource Include="Assets\Fonts\verdana.ttf" />
+    <EmbeddedResource Include="Assets\map.png" />
     <EmbeddedResource Include="Assets\ramen.png" />
     <EmbeddedResource Include="Assets\reep.png" />
     <EmbeddedResource Include="Assets\savaanstraat.png" />

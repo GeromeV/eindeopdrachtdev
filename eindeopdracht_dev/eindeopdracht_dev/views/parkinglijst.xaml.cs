@@ -16,11 +16,12 @@ namespace eindeopdracht_dev.views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class parkinglijst : ContentPage
     {
-        
+        ParkingGent.Record record;
         public parkinglijst()
         {
             InitializeComponent();
             opvullen();
+            imgMapnav.Source = ImageSource.FromResource("eindeopdracht_dev.Assets.map.png");
 
         }
 
@@ -28,6 +29,7 @@ namespace eindeopdracht_dev.views
         {
             Debug.WriteLine("debug parking");
             ParkingGent.Rootobject x = await ParkingRepo.GetRecords();
+            record = new ParkingGent.Record();
             lvwParking.ItemsSource = x.records;
             
             //imgpark.Source = ImageSource.FromResource("eindeopdracht_dev/Assets/reep.jpg");
@@ -48,8 +50,10 @@ namespace eindeopdracht_dev.views
            
         }
 
-        
-
-
+        private void imgMapnav_Clicked(object sender, EventArgs e)
+        {
+            
+            Navigation.PushAsync(new mapalleparkings());
+        }
     }
 }
