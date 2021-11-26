@@ -30,7 +30,7 @@ namespace eindeopdracht_dev.views
             ParkingGent.Rootobject x = await ParkingRepo.GetRecords();
             lvwParking.ItemsSource = x.records;
             
-            imgpark.Source = ImageSource.FromResource("eindeopdracht_dev/Assets/reep.jpg");
+            //imgpark.Source = ImageSource.FromResource("eindeopdracht_dev/Assets/reep.jpg");
             
             
 

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-
+using Xamarin.Forms;
 
 namespace eindopdracht.Models
 {
@@ -67,6 +67,18 @@ namespace eindopdracht.Models
                 get
                 {
                     return $"eindopdracht_dev/Assets/{name}.jpg";
+                }
+            }
+            public ImageSource ImageSource
+            {
+                get
+                {
+                    
+                    
+                  return ImageSource.FromResource($"eindeopdracht_dev.Assets.{this.name.ToLower()}.png");
+                    
+                    
+                                           
                 }
             }
 

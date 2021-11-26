@@ -6,7 +6,7 @@
         <StackLayout Margin="28" Spacing="10" >
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="120"></RowDefinition>
+                    <RowDefinition Height="250"></RowDefinition>
                     <RowDefinition Height="auto"></RowDefinition>
                     <RowDefinition Height="auto"></RowDefinition>
                     <RowDefinition Height="auto"></RowDefinition>
@@ -14,7 +14,7 @@
                     <RowDefinition Height="auto"></RowDefinition>
                     <RowDefinition Height="auto"></RowDefinition>
                 </Grid.RowDefinitions>
-                <Image Source="eindeopdracht_dev/Assets/Reep.jpg"  Grid.Row="1"></Image>
+                <Image Source="{Binding fields.ImageSource}"  Grid.Row="0" Aspect="AspectFill" HeightRequest="50"></Image>
                 <Label TextColor="Black" FontSize="24" FontAttributes="Bold" FontFamily="Mijnfont" Text="{Binding fields.name}"  Grid.Row="2"></Label>
                 <Label TextColor="Black" Text="{Binding fields.description}" FontSize="14" FontFamily="Mijnfont"  Grid.Row="3"></Label>
 

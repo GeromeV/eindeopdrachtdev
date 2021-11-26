@@ -18,32 +18,42 @@
 
   <ItemGroup>
     <None Remove="Assets\B-Park Dampoort.jpg" />
+    <None Remove="Assets\b-park dampoort.png" />
     <None Remove="Assets\B-Park Gent Sint-Pieters.jpg" />
+    <None Remove="Assets\b-park gent sint-pieters.png" />
     <None Remove="Assets\Dok noord.jpg" />
+    <None Remove="Assets\dok noord.png" />
     <None Remove="Assets\Fonts\verdana-bold.ttf" />
     <None Remove="Assets\Fonts\verdana.ttf" />
     <None Remove="Assets\Ramen.jpg" />
+    <None Remove="Assets\ramen.png" />
     <None Remove="Assets\Reep.jpg" />
+    <None Remove="Assets\reep.png" />
     <None Remove="Assets\Savaanstraat.jpg" />
+    <None Remove="Assets\savaanstraat.png" />
     <None Remove="Assets\Sint-Michiels.jpg" />
+    <None Remove="Assets\sint-michiels.png" />
     <None Remove="Assets\Sint-Pietersplein.jpg" />
+    <None Remove="Assets\sint-pietersplein.png" />
     <None Remove="Assets\Tolhuis.jpg" />
+    <None Remove="Assets\tolhuis.png" />
     <None Remove="Assets\Vrijdagmarkt.jpg" />
+    <None Remove="Assets\vrijdagmarkt.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Assets\B-Park Dampoort.jpg" />
-    <EmbeddedResource Include="Assets\B-Park Gent Sint-Pieters.jpg" />
-    <EmbeddedResource Include="Assets\Dok noord.jpg" />
+    <EmbeddedResource Include="Assets\b-park dampoort.png" />
+    <EmbeddedResource Include="Assets\b-park gent sint-pieters.png" />
+    <EmbeddedResource Include="Assets\dok noord.png" />
     <EmbeddedResource Include="Assets\Fonts\verdana-bold.ttf" />
     <EmbeddedResource Include="Assets\Fonts\verdana.ttf" />
-    <EmbeddedResource Include="Assets\Ramen.jpg" />
-    <EmbeddedResource Include="Assets\reep.jpg" />
-    <EmbeddedResource Include="Assets\Savaanstraat.jpg" />
-    <EmbeddedResource Include="Assets\Sint-Michiels.jpg" />
-    <EmbeddedResource Include="Assets\Sint-Pietersplein.jpg" />
-    <EmbeddedResource Include="Assets\Tolhuis.jpg" />
-    <EmbeddedResource Include="Assets\Vrijdagmarkt.jpg" />
+    <EmbeddedResource Include="Assets\ramen.png" />
+    <EmbeddedResource Include="Assets\reep.png" />
+    <EmbeddedResource Include="Assets\savaanstraat.png" />
+    <EmbeddedResource Include="Assets\sint-michiels.png" />
+    <EmbeddedResource Include="Assets\sint-pietersplein.png" />
+    <EmbeddedResource Include="Assets\tolhuis.png" />
+    <EmbeddedResource Include="Assets\vrijdagmarkt.png" />
   </ItemGroup>
 
   <ItemGroup>
