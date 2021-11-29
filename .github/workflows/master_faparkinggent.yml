@@ -28,7 +28,7 @@ jobs:
       - name: 'Resolve Project Dependencies Using Dotnet'
         shell: bash
         run: |
-          pushd './${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}'
+          pushd './${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}/fa_parkinggent'
           dotnet build --configuration Release --output ./output
           popd
 
@@ -38,5 +38,5 @@ jobs:
         with:
           app-name: 'faparkinggent'
           slot-name: 'Production'
-          package: '${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}/output'
+          package: '${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}/fa_parkinggent/output'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_7BA0C442868543AA9D2AC7A8A2CA7B62 }}
