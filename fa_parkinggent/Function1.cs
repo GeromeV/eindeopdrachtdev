@@ -17,7 +17,7 @@ namespace fa_parkinggent
     {
         [FunctionName("Postid")]
         public async Task<IActionResult> Postid(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "post","get", Route = "v1/postparkingid")] HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "v1/postparkingid")] HttpRequest req,
             ILogger log)
         {
             
