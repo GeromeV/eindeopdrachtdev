@@ -25,7 +25,7 @@ namespace eindeopdracht_dev.views
         {
 
             Map kaart = new Map();
-            kaart.MapType = MapType.Satellite;
+            kaart.MapType = MapType.Street;
             Position position = new Position(record.geometry.coordinates[1], record.geometry.coordinates[0]);
             var addresses = await geocoder.GetAddressesForPositionAsync(position);
 
@@ -38,6 +38,8 @@ namespace eindeopdracht_dev.views
             };
             kaart.Pins.Add(pin);
             kaart.IsShowingUser = true;
+
+
             //Circle circle = new Circle
             //{
             //    Center = position,

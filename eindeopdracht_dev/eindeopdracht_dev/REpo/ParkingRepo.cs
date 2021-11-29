@@ -4,9 +4,10 @@ using System.IO;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using eindopdracht.Models;
 using Newtonsoft;
+using eindopdracht.Models;
 using Newtonsoft.Json;
+using Microsoft.Azure.Cosmos;
 
 namespace eindopdracht.REpo
 {
@@ -19,7 +20,7 @@ namespace eindopdracht.REpo
             client.DefaultRequestHeaders.Add("accept", "appliction/json");
             return client;
         }
-
+        
         public static async Task<ParkingGent.Rootobject> GetRecords()
         {
             using (HttpClient client = GetClient())
@@ -33,6 +34,7 @@ namespace eindopdracht.REpo
                     if (json != null)
                     {
                         return JsonConvert.DeserializeObject<ParkingGent.Rootobject>(json);
+
                     }
                     else
                     {
@@ -43,6 +45,8 @@ namespace eindopdracht.REpo
                 {
                     throw ex;
                 }
+
+                
             }
         }
 
