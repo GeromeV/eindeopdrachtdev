@@ -15,9 +15,9 @@ namespace fa_parkinggent
 {
     public  class Function1
     {
-        [FunctionName("Getid")]
-        public async Task<IActionResult> Getid(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "post","get", Route = "v1/parkingid")] HttpRequest req,
+        [FunctionName("Postid")]
+        public async Task<IActionResult> Postid(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "post","get", Route = "v1/postparkingid")] HttpRequest req,
             ILogger log)
         {
             
@@ -41,10 +41,35 @@ namespace fa_parkinggent
             return new OkObjectResult(registration);
         }
 
+        [FunctionName("Getid")]
+        public async Task<IActionResult> Getid(
+           [HttpTrigger(AuthorizationLevel.Anonymous,"get", Route = "v1/getparkingid")] HttpRequest req,
+           ILogger log)
+        {
 
-       
+            var json = await new StreamReader(req.Body).ReadToEndAsync();
+            var registration = JsonConvert.DeserializeObject<parking>(json);
+            string connectionstring = Environment.GetEnvironmentVariable("SQLSERVER");
 
-        
+            using (SqlConnection sqlConnection = new SqlConnection(connectionstring))
+            {
+                await sqlConnection.OpenAsync();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = sqlConnection;
+                    cmd.CommandText = "SELECT * from tblparkign";
+                    
+
+                    await cmd.ExecuteNonQueryAsync();
+                }
+            }
+            return new OkObjectResult(registration);
+        }
+
+
+
+
+
 
     }
 }
