@@ -79,9 +79,10 @@ namespace fa_parkinggent
                 return new OkObjectResult(park);
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
+                log.LogError(ex.Message);
+                return new StatusCodeResult(500);
                 throw;
             }
 
