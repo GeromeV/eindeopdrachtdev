@@ -46,24 +46,46 @@ namespace fa_parkinggent
            [HttpTrigger(AuthorizationLevel.Anonymous,"get", Route = "v1/getparkingid")] HttpRequest req,
            ILogger log)
         {
-
-            var json = await new StreamReader(req.Body).ReadToEndAsync();
-            var registration = JsonConvert.DeserializeObject<parking>(json);
-            string connectionstring = Environment.GetEnvironmentVariable("SQLSERVER");
-
-            using (SqlConnection sqlConnection = new SqlConnection(connectionstring))
+            try
             {
-                await sqlConnection.OpenAsync();
-                using (SqlCommand cmd = new SqlCommand())
-                {
-                    cmd.Connection = sqlConnection;
-                    cmd.CommandText = "SELECT * from tblparkign";
-                    
+                string connectionstring = Environment.GetEnvironmentVariable("SQLSERVER");
+                List<parking> park = new List<parking>();
 
-                    await cmd.ExecuteNonQueryAsync();
+
+                using (SqlConnection sqlConnection = new SqlConnection(connectionstring))
+                {
+                    
+                    await sqlConnection.OpenAsync();
+                    using (SqlCommand cmd = new SqlCommand())
+                    {
+                        cmd.Connection = sqlConnection;
+                        cmd.CommandText = "SELECT * from tblparkign";
+                        var reader = await cmd.ExecuteReaderAsync();
+                        while(await reader.ReadAsync())
+                        {
+                            park.Add(new parking()
+                            {
+                                id = Guid.Parse(reader["id"].ToString()),
+                                parkingid = reader["parkingid"].ToString()
+
+                            });
+
+                        }
+                    }
+
+
                 }
+
+                return new OkObjectResult(park);
+
             }
-            return new OkObjectResult(registration);
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+           
         }
 
 
