@@ -83,7 +83,7 @@ namespace fa_parkinggent
             {
                 log.LogError(ex.Message);
                 return new StatusCodeResult(500);
-                throw;
+                
             }
 
            
