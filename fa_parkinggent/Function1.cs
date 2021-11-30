@@ -32,7 +32,7 @@ namespace fa_parkinggent
                 {
                     cmd.Connection = sqlConnection;
                     cmd.Parameters.AddWithValue("@parkingid", id);
-                    cmd.CommandText = "INSERT INTO tblparkign VALUES(@parkingid)";
+                    cmd.CommandText = @"INSERT INTO tblparkign VALUES(@parkingid)";
 
                     await cmd.ExecuteNonQueryAsync();
                 }
