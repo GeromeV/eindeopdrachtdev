@@ -31,8 +31,7 @@ namespace fa_parkinggent
                 using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.Connection = sqlConnection;
-                    cmd.CommandText = "INSERT INTO tblparkign VALUES(@id,@parkingid)";
-                    cmd.Parameters.AddWithValue("@id", registration.id);
+                    cmd.CommandText = "INSERT INTO tblparkign VALUES(@parkingid)";
                     cmd.Parameters.AddWithValue("@parkingid", registration.parkingid);
 
                     await cmd.ExecuteNonQueryAsync();
@@ -65,7 +64,7 @@ namespace fa_parkinggent
                         {
                             park.Add(new parking()
                             {
-                                id = Guid.Parse(reader["id"].ToString()),
+                                
                                 parkingid = reader["parkingid"].ToString()
 
                             });

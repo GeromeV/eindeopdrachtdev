@@ -8,6 +8,7 @@ using Newtonsoft;
 using eindopdracht.Models;
 using Newtonsoft.Json;
 using Microsoft.Azure.Cosmos;
+using eindeopdracht_dev.Models;
 
 namespace eindopdracht.REpo
 {
@@ -50,7 +51,63 @@ namespace eindopdracht.REpo
             }
         }
 
+        public static async Task<List<favoriet>> Getfavoriet()
+        {
+            using (HttpClient client = GetClient())
+            {
+                try
+                {
+                    string url = "https://faparkinggent.azurewebsites.net/api/v1/getparkingid";
+
+                    string json = await client.GetStringAsync(url);
+
+                    if (json != null)
+                    {
+                        return JsonConvert.DeserializeObject<List<favoriet>>(json);
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+            }
+        }
+
         
+
+        public async static Task UpdateFavo(favoriet favo)
+        {
+            try
+            {
+                using (HttpClient client = GetClient())
+                {
+                    string url = "https://faparkinggent.azurewebsites.net/api/v1/postparkingid";
+
+                    string json = JsonConvert.SerializeObject(favo);
+
+                    HttpContent content = new StringContent(json, Encoding.UTF8, "application/json");
+
+                    var response = await client.PutAsync(url, content); ;
+                    if (!response.IsSuccessStatusCode)
+                    {
+                        throw new Exception("Tis nie gulukt, programeer wa beter e de volgende keer");
+                    }
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+
+
+
 
     }
 }

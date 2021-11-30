@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
-namespace fa_parkinggent
+namespace eindeopdracht_dev.Models
 {
-    public class parking
+    public class favoriet
     {
-        
+        public Guid id { get; set; }
+
         public string parkingid { get; set; }
     }
 }
