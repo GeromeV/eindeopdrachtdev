@@ -17,8 +17,8 @@ namespace fa_parkinggent
     {
         [FunctionName("Postid")]
         public async Task<IActionResult> Postid(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "v1/postparkingid/{id}")] HttpRequest req,
-            ILogger log,string id)
+            [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "v1/postparkingid")] HttpRequest req,
+            ILogger log)
         {
             
           var json = await new StreamReader(req.Body).ReadToEndAsync();
@@ -31,13 +31,13 @@ namespace fa_parkinggent
                 using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.Connection = sqlConnection;
-                    cmd.Parameters.AddWithValue("@parkingid", id);
-                    cmd.CommandText = @"INSERT INTO tblparkign VALUES(@parkingid)";
+                    cmd.CommandText = "INSERT INTO tblparkign VALUES(@parkingid)";
+                    cmd.Parameters.AddWithValue("@parkingid", registration.parkingid);
 
                     await cmd.ExecuteNonQueryAsync();
                 }
             }
-            return new OkObjectResult(id);
+            return new OkObjectResult(registration);
         }
 
         [FunctionName("Getid")]

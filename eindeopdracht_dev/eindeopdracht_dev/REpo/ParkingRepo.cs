@@ -79,19 +79,43 @@ namespace eindopdracht.REpo
 
         
 
-        public async static Task UpdateFavo(favoriet favo)
+        public async static Task UpdateFavo(string id)
         {
             try
             {
                 using (HttpClient client = GetClient())
                 {
-                    string url = "https://faparkinggent.azurewebsites.net/api/v1/postparkingid";
+                    string url = $"https://faparkinggent.azurewebsites.net/api/v1/postparkingid/"+id;
 
-                    string json = JsonConvert.SerializeObject(favo);
+                   
 
-                    HttpContent content = new StringContent(json, Encoding.UTF8, "application/json");
+                    HttpContent content = new StringContent(id);
 
                     var response = await client.PutAsync(url, content); ;
+                    if (!response.IsSuccessStatusCode)
+                    {
+                        throw new Exception("Tis nie gulukt, programeer wa beter e de volgende keer");
+                    }
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+
+        public async static Task Deletefavo(string id)
+        {
+            try
+            {
+                using (HttpClient client = GetClient())
+                {
+                    string url = $"https://faparkinggent.azurewebsites.net/api/v1/deleteparkingid/"+id;
+
+
+                    var response = await client.DeleteAsync(url); ;
                     if (!response.IsSuccessStatusCode)
                     {
                         throw new Exception("Tis nie gulukt, programeer wa beter e de volgende keer");

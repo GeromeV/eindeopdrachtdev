@@ -50,7 +50,7 @@ namespace eindeopdracht_dev.views
             
             
             ParkingGent.Record sele = lvwParking.SelectedItem as ParkingGent.Record;
-            Navigation.PushAsync(new parkingdetails(sele));
+            await Navigation.PushAsync(new parkingdetails(sele));
 
             
            

@@ -22,10 +22,10 @@ namespace eindeopdracht_dev.views
         public parkingdetails(ParkingGent.Record record)
         {
             InitializeComponent();
-            
-           
+
             BindingContext = record;
             records = record;
+            //imgfavoriet.Source = ImageSource.FromResource("eindeopdracht_dev.Assets.sterwit.png");
             favorieten();
             
 
@@ -33,10 +33,11 @@ namespace eindeopdracht_dev.views
 
         private async void favorieten()
         {
+            Debug.WriteLine($"{ records.fields.name } tekst" );
             List<favoriet> favo = await ParkingRepo.Getfavoriet();
             foreach (var item in favo)
             {
-                Debug.WriteLine(item.parkingid);
+                //Debug.WriteLine(item.parkingid);
                 if (item.parkingid != records.fields.name)
                 {
                     imgfavoriet.Source = ImageSource.FromResource("eindeopdracht_dev.Assets.sterwit.png");
@@ -61,21 +62,30 @@ namespace eindeopdracht_dev.views
         {
             
             List<favoriet> favo = await ParkingRepo.Getfavoriet();
-            foreach (var item in favo)
-            {
-                Debug.WriteLine(item.parkingid);
-                if (item.parkingid == records.fields.name)
-                {
-                    imgfavoriet.Source = ImageSource.FromResource("eindeopdracht_dev.Assets.sterwit.png");
-                }
-
-                else
-                {
-                    imgfavoriet.Source = ImageSource.FromResource("eindeopdracht_dev.Assets.stergeel.png");
+            await ParkingRepo.UpdateFavo(records.fields.name);
 
 
-                }
-            }
+            //foreach (var item in favo)
+            //{
+            //    Debug.WriteLine(item.parkingid);
+
+            //    if (item.parkingid == records.fields.name)
+            //    {
+                    
+            //        await ParkingRepo.Deletefavo(records.fields.name);
+            //        imgfavoriet.Source = ImageSource.FromResource("eindeopdracht_dev.Assets.sterwit.png");
+
+            //    }
+
+            //    else
+            //    {
+            //        item.parkingid = records.fields.name;
+                    
+            //        imgfavoriet.Source = ImageSource.FromResource("eindeopdracht_dev.Assets.stergeel.png");
+
+
+            //    }
+            //}
 
 
 
