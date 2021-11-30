@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using eindeopdracht_dev.Models;
 
 namespace eindeopdracht_dev.views
 {
@@ -31,7 +32,12 @@ namespace eindeopdracht_dev.views
             ParkingGent.Rootobject x = await ParkingRepo.GetRecords();
             record = new ParkingGent.Record();
             lvwParking.ItemsSource = x.records;
-            
+            List<favoriet> favo = await ParkingRepo.Getfavoriet();
+            foreach (var item in favo)
+            {
+                Debug.WriteLine(item.parkingid);
+            }
+
             //imgpark.Source = ImageSource.FromResource("eindeopdracht_dev/Assets/reep.jpg");
             
             

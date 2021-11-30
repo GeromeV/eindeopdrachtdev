@@ -36,6 +36,8 @@
     <None Remove="Assets\sint-michiels.png" />
     <None Remove="Assets\Sint-Pietersplein.jpg" />
     <None Remove="Assets\sint-pietersplein.png" />
+    <None Remove="Assets\stergeel.png" />
+    <None Remove="Assets\sterwit.png" />
     <None Remove="Assets\Tolhuis.jpg" />
     <None Remove="Assets\tolhuis.png" />
     <None Remove="Assets\Vrijdagmarkt.jpg" />
@@ -54,6 +56,8 @@
     <EmbeddedResource Include="Assets\savaanstraat.png" />
     <EmbeddedResource Include="Assets\sint-michiels.png" />
     <EmbeddedResource Include="Assets\sint-pietersplein.png" />
+    <EmbeddedResource Include="Assets\stergeel.png" />
+    <EmbeddedResource Include="Assets\sterwit.png" />
     <EmbeddedResource Include="Assets\tolhuis.png" />
     <EmbeddedResource Include="Assets\vrijdagmarkt.png" />
   </ItemGroup>

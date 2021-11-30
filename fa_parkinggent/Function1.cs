@@ -60,6 +60,7 @@ namespace fa_parkinggent
                         cmd.Connection = sqlConnection;
                         cmd.CommandText = "SELECT * from tblparkign";
                         var reader = await cmd.ExecuteReaderAsync();
+                        
                         while(await reader.ReadAsync())
                         {
                             park.Add(new parking()
@@ -86,6 +87,56 @@ namespace fa_parkinggent
             }
 
            
+        }
+
+        [FunctionName("Deleteid")]
+        public async Task<IActionResult> Deleteid(
+          [HttpTrigger(AuthorizationLevel.Anonymous, "delete", Route = "v1/deleteparkingid/{id}")] HttpRequest req,
+          ILogger log,string id)
+        {
+            try
+            {
+                string connectionstring = Environment.GetEnvironmentVariable("SQLSERVER");
+                List<parking> park = new List<parking>();
+
+
+                using (SqlConnection sqlConnection = new SqlConnection(connectionstring))
+                {
+
+                    await sqlConnection.OpenAsync();
+                    using (SqlCommand cmd = new SqlCommand())
+                    {
+                        cmd.Connection = sqlConnection;
+                        cmd.Parameters.AddWithValue("@id",id);
+                        cmd.CommandText = @"DELETE FROM tblParkign WHERE parkingid = @id;";
+                        var reader = await cmd.ExecuteReaderAsync();
+
+                        while (await reader.ReadAsync())
+                        {
+                            park.Add(new parking()
+                            {
+
+                                parkingid = reader["parkingid"].ToString()
+
+                            });
+
+                        }
+                    }
+
+
+                }
+
+                return new OkObjectResult(park);
+
+            }
+            catch (Exception ex)
+            {
+                log.LogError(ex.Message);
+                return new StatusCodeResult(500);
+
+            }
+
+
         }
 
 
