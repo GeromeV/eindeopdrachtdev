@@ -37,7 +37,7 @@ namespace fa_parkinggent
                     await cmd.ExecuteNonQueryAsync();
                 }
             }
-            return new OkObjectResult(registration);
+            return new OkObjectResult(id);
         }
 
         [FunctionName("Getid")]
