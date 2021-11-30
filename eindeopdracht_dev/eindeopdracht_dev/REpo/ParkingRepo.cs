@@ -51,6 +51,33 @@ namespace eindopdracht.REpo
             }
         }
 
+        public static async Task<ParkingGentFavo.Rootobject> Getrecordsfavo(string naam)
+        {
+            using (HttpClient client = GetClient())
+            {
+                try
+                {
+                    string url = $"https://data.stad.gent/api/records/1.0/search/?dataset=bezetting-parkeergarages-real-time&q=&sort=-occupation&refine.name={naam}&apikey=a5989a455e12f736762d9f865b1d3ea0e796f46e7de09989263c2283";
+
+                    string json = await client.GetStringAsync(url);
+
+                    if (json != null)
+                    {
+                        return JsonConvert.DeserializeObject<ParkingGentFavo.Rootobject>(json);
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+            }
+        }
+
+
         public static async Task<List<favoriet>> Getfavoriet()
         {
             using (HttpClient client = GetClient())
@@ -76,22 +103,19 @@ namespace eindopdracht.REpo
                 }
             }
         }
-
-        
-
-        public async static Task UpdateFavo(string id)
+        public async static Task UpdateFavo(favoriet favo)
         {
             try
             {
                 using (HttpClient client = GetClient())
                 {
-                    string url = $"https://faparkinggent.azurewebsites.net/api/v1/postparkingid/"+id;
+                    string url = "https://faparkinggent.azurewebsites.net/api/v1/postparkingid";
 
-                   
+                    string json = JsonConvert.SerializeObject(favo);
 
-                    HttpContent content = new StringContent(id);
+                    HttpContent content = new StringContent(json, Encoding.UTF8, "application/json");
 
-                    var response = await client.PutAsync(url, content); ;
+                    var response = await client.PostAsync(url, content); ;
                     if (!response.IsSuccessStatusCode)
                     {
                         throw new Exception("Tis nie gulukt, programeer wa beter e de volgende keer");
@@ -104,6 +128,7 @@ namespace eindopdracht.REpo
                 throw;
             }
         }
+
 
 
         public async static Task Deletefavo(string id)

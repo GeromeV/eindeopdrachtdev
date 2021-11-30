@@ -18,10 +18,14 @@ namespace eindeopdracht_dev.views
     public partial class parkinglijst : ContentPage
     {
         ParkingGent.Record record;
+       
+        ParkingGentFavo.Rootobject parkfavo;
         public parkinglijst()
         {
             InitializeComponent();
+
             opvullen();
+            imgfavo.Source = ImageSource.FromResource("eindeopdracht_dev.Assets.sterwit.png");
             imgMapnav.Source = ImageSource.FromResource("eindeopdracht_dev.Assets.map.png");
 
         }
@@ -32,11 +36,7 @@ namespace eindeopdracht_dev.views
             ParkingGent.Rootobject x = await ParkingRepo.GetRecords();
             record = new ParkingGent.Record();
             lvwParking.ItemsSource = x.records;
-            List<favoriet> favo = await ParkingRepo.Getfavoriet();
-            foreach (var item in favo)
-            {
-                Debug.WriteLine(item.parkingid);
-            }
+           
 
             //imgpark.Source = ImageSource.FromResource("eindeopdracht_dev/Assets/reep.jpg");
             
@@ -60,6 +60,39 @@ namespace eindeopdracht_dev.views
         {
             
             Navigation.PushAsync(new mapalleparkings());
+        }
+
+        private async void imgfavo_Clicked(object sender, EventArgs e)
+        {
+            
+            if (lvwParkingfavo.IsVisible == true)
+            {
+                imgfavo.Source = ImageSource.FromResource("eindeopdracht_dev.Assets.sterwit.png");
+                lvwParkingfavo.IsVisible = false;
+                lvwParking.IsVisible = true;
+
+
+            }
+
+            else if (lvwParkingfavo.IsVisible == false)
+            {
+                imgfavo.Source = ImageSource.FromResource("eindeopdracht_dev.Assets.stergeel.png");
+                lvwParkingfavo.IsVisible = true;
+                lvwParking.IsVisible = false;
+            }
+            List<favoriet> favo = await ParkingRepo.Getfavoriet();
+           
+            foreach (var item in favo)
+            {
+                Debug.WriteLine(item.parkingid);
+                parkfavo = await ParkingRepo.Getrecordsfavo(item.parkingid);
+               
+                lvwParkingfavo.ItemsSource = parkfavo.records;
+                
+                
+                
+            }
+
         }
     }
 }
