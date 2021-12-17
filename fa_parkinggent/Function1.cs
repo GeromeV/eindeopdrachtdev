@@ -58,7 +58,7 @@ namespace fa_parkinggent
                     using (SqlCommand cmd = new SqlCommand())
                     {
                         cmd.Connection = sqlConnection;
-                        cmd.CommandText = "SELECT * from tblparkign";
+                        cmd.CommandText = "SELECT * from tblparkign group by parkingid";
                         var reader = await cmd.ExecuteReaderAsync();
                         
                         while(await reader.ReadAsync())

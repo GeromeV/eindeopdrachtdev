@@ -78,7 +78,43 @@ namespace eindopdracht.REpo
         }
 
 
-        public static async Task<List<favoriet>> Getfavoriet()
+        public static async Task<List<ParkingGentFavo.Record>> Getfavoriet()
+        {
+            List<ParkingGentFavo.Record> lijst = new List<ParkingGentFavo.Record>();
+
+            using (HttpClient client = GetClient())
+            {
+                try
+                {
+                    string url = "https://faparkinggent.azurewebsites.net/api/v1/getparkingid";
+
+                    string json = await client.GetStringAsync(url);
+
+                    if (json != null)
+                    {
+                        foreach (var item in JsonConvert.DeserializeObject<List<favoriet>>(json))
+                        {
+                            var test = await Getrecordsfavo(item.parkingid);
+                            lijst.Add(test.records[0]);
+                        }
+
+                        return lijst;
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+            }
+        }
+
+
+        
+        public static async Task<List<favoriet>> IsFavoriet()
         {
             using (HttpClient client = GetClient())
             {
@@ -97,12 +133,14 @@ namespace eindopdracht.REpo
                         return null;
                     }
                 }
+
                 catch (Exception ex)
                 {
                     throw ex;
                 }
             }
         }
+
         public async static Task UpdateFavo(favoriet favo)
         {
             try

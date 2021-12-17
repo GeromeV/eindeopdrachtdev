@@ -33,15 +33,15 @@ namespace eindeopdracht_dev.views
 
         private async void favorieten()
         {
-            //Debug.WriteLine($"{ records.fields.name } tekst" );
-            List<favoriet> favo = await ParkingRepo.Getfavoriet();
+            Debug.WriteLine($"{ records.fields.name } tekst");
+            List<favoriet> favo = await ParkingRepo.IsFavoriet();
             foreach (var item in favo)
             {
                 Debug.WriteLine(item.parkingid);
                 if (item.parkingid != records.fields.name)
                 {
                     imgfavoriet.Source = ImageSource.FromResource("eindeopdracht_dev.Assets.sterwit.png");
-                    
+
                 }
 
                 else
@@ -62,8 +62,8 @@ namespace eindeopdracht_dev.views
 
         private async void imgfavoriet_Clicked(object sender, EventArgs e)
         {
-            
-            List<favoriet> favo = await ParkingRepo.Getfavoriet();
+
+            List<favoriet> favo = await ParkingRepo.IsFavoriet();
 
 
 
@@ -73,10 +73,10 @@ namespace eindeopdracht_dev.views
 
                 if (item.parkingid == records.fields.name)
                 {
-                    
+
                     await ParkingRepo.Deletefavo(records.fields.name);
                     imgfavoriet.Source = ImageSource.FromResource("eindeopdracht_dev.Assets.sterwit.png");
-                    break ;
+                    break;
 
                 }
 
@@ -85,7 +85,7 @@ namespace eindeopdracht_dev.views
                     item.parkingid = records.fields.name;
                     await ParkingRepo.UpdateFavo(item);
                     imgfavoriet.Source = ImageSource.FromResource("eindeopdracht_dev.Assets.stergeel.png");
-                    
+
 
 
                 }

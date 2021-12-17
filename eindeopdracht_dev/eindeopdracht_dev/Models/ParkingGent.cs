@@ -7,6 +7,7 @@ namespace eindopdracht.Models
 {
     public class ParkingGent
     {
+        public Rootobject[] rootobjects { get; set; }
         public class Rootobject
         {
             public Record[] records { get; set; }

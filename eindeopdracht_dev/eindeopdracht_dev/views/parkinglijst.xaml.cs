@@ -20,6 +20,8 @@ namespace eindeopdracht_dev.views
         ParkingGent.Record record;
        
         ParkingGentFavo.Rootobject parkfavo;
+        ParkingGentFavo.Rootobject rootobject;
+
         public parkinglijst()
         {
             InitializeComponent();
@@ -80,18 +82,13 @@ namespace eindeopdracht_dev.views
                 lvwParkingfavo.IsVisible = true;
                 lvwParking.IsVisible = false;
             }
-            List<favoriet> favo = await ParkingRepo.Getfavoriet();
-           
-            foreach (var item in favo)
-            {
-                Debug.WriteLine(item.parkingid);
-                parkfavo = await ParkingRepo.Getrecordsfavo(item.parkingid);
-               
-                lvwParkingfavo.ItemsSource = parkfavo.records;
-                
-                
-                
-            }
+            
+
+
+            List<ParkingGentFavo.Record> piemel = await ParkingRepo.Getfavoriet();
+            lvwParkingfavo.ItemsSource = piemel;
+
+
 
         }
     }
