@@ -26,7 +26,7 @@
     <ContentPage.Content>
         <StackLayout x:Name="pagina" Margin="16" BackgroundColor="White">
 
-            <ListView x:Name="lvwParkingfavo" RowHeight="200" IsPullToRefreshEnabled="False" ItemSelected="lvwProductions_ItemSelected" IsVisible="false">
+            <ListView x:Name="lvwParkingfavo" RowHeight="200" IsPullToRefreshEnabled="False" ItemSelected="lvwParkingfavo_ItemSelected" IsVisible="false">
                 <ListView.ItemTemplate >
                     <DataTemplate >
                         <ViewCell>

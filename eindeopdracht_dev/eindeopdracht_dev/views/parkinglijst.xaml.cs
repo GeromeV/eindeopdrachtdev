@@ -24,8 +24,8 @@ namespace eindeopdracht_dev.views
 
         public parkinglijst()
         {
-            InitializeComponent();
 
+            InitializeComponent();
             opvullen();
             imgfavo.Source = ImageSource.FromResource("eindeopdracht_dev.Assets.sterwit.png");
             imgMapnav.Source = ImageSource.FromResource("eindeopdracht_dev.Assets.map.png");
@@ -90,6 +90,12 @@ namespace eindeopdracht_dev.views
 
 
 
+        }
+
+        private async void lvwParkingfavo_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            ParkingGentFavo.Record sele = lvwParkingfavo.SelectedItem as ParkingGentFavo.Record;
+            await Navigation.PushAsync(new detailpagefavo(sele));
         }
     }
 }

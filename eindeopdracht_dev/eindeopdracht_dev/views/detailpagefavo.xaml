@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="eindeopdracht_dev.views.detailpagefavo">
+    <NavigationPage.TitleView>
+        <StackLayout>
+            <Grid RowSpacing="0" Padding="0" BackgroundColor="Transparent">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="25" />
+                    <ColumnDefinition Width="*" />
+
+                </Grid.ColumnDefinitions>
+                <ImageButton x:Name="imgfavoriet"  Aspect="AspectFit" VerticalOptions="End" Grid.Column="0" Clicked="imgfavoriet_Clicked" BackgroundColor="Transparent"/>
+
+
+            </Grid>
+
+        </StackLayout>
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+
+        <StackLayout Margin="28" Spacing="10" BackgroundColor="White" >
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="250"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Image Source="{Binding fields.ImageSource}"  Grid.Row="0" Aspect="AspectFill" HeightRequest="50"></Image>
+                <Label TextColor="Black" FontSize="24" FontAttributes="Bold" FontFamily="Mijnfont" Text="{Binding fields.name}"  Grid.Row="2"></Label>
+                <Label TextColor="Black" Text="{Binding fields.description}" FontSize="14" FontFamily="Mijnfont"  Grid.Row="3"></Label>
+
+                <Label TextColor="Black" VerticalOptions="Center" FontSize="14" Grid.Row="4" FontFamily="Mijnfont">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Vrij plekken: " />
+                            <Span Text="{Binding fields.availablecapacity}" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label TextColor="Black" Text="{Binding fields.totalcapacity}" FontSize="14" FontFamily="Mijnfont" Grid.Row="5">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Aantal plaatsen: " />
+                            <Span Text="{Binding fields.totalcapacity}" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label TextColor="Black"  Text="{Binding fields.open}" Grid.Row="6"  FontSize="14" FontFamily="Mijnfont"></Label>
+                <Label  TextColor="Black" Text="{Binding fields.openingtimesdescription}" FontSize="14" FontFamily="Mijnfont" Grid.Row="7"></Label>
+                <Label  TextColor="Black" x:Name="lblcordinaten" Text="{Binding fields.openingtimesdescription}" FontSize="14" FontFamily="Mijnfont" Grid.Row="7"></Label>
+                <Button FontSize="18" FontAttributes="Bold" FontFamily="Mijnfont" Text="Maps" Clicked="Button_Clicked" Grid.Row="8" ></Button>
+            </Grid>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
